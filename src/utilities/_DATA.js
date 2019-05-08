@@ -1,6 +1,6 @@
 let users = {
   sarahedo: {
-    id: 'superman',
+    id: 'sarahedo',
     name: 'Super Man',
     avatarURL: "https://akm-img-a-in.tosshub.com/indiatoday/images/story/201306/superman_660_060113025152.jpg",
     answers: {
@@ -12,7 +12,7 @@ let users = {
     questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
   },
   tylermcginnis: {
-    id: 'natasharomanoff',
+    id: 'tylermcginnis',
     name: 'Natasha Romanoff',
     avatarURL: "https://www.desktop-background.com/download/480x800/2011/09/13/264962_natasha-romanoff-iron-man-2_1135x932_h.jpg",
     answers: {
@@ -22,7 +22,7 @@ let users = {
     questions: ['loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do'],
   },
   johndoe: {
-    id: 'tonystark',
+    id: 'johndoe',
     name: 'Tony Stark',
     avatarURL: "https://www.thewrap.com/wp-content/uploads/2019/04/avengers-end-game-tony-stary-iron-man-2.jpg",
     answers: {

@@ -1,0 +1,71 @@
+.pollElementContainer {
+    min-width: 320px;
+    max-width: 450px;
+    height: auto;
+    margin: auto;
+
+}
+
+
+.pollElementPaper {
+    overflow: auto
+}
+
+.pollElementBoxHeader {
+    height: 50px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom-style: solid;
+    border-color: lightgray;
+    border-width: 1px;
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+    text-align: left;
+    justify-content: center;
+    padding-left: 10px;
+}
+
+
+.pollElementControls {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+
+.pollElementFormControl {
+    width: 100%;
+    margin-top: 30px !important;
+}
+
+.pollElementText {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.pollElementSeparator {
+    text-align: center;
+    background-color: lightgray;
+    height: 100%;
+    width: 1px;
+}
+
+.pollElementMainTitle {
+
+    font-weight: bold;
+    font-size: 1em;
+    height: 30px;
+
+
+}
+
+.pollElementScoreCardImg {
+    margin: 'auto';
+    display: 'block';
+    max-width: '100%';
+    max-height: '100%';
+    width: 100px;
+    height: 100px;
+}

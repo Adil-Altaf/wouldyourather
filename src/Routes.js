@@ -2,15 +2,9 @@ import React, { Component } from "react";
 import { Route, Router, Switch } from "react-router-dom";
 import Login from "./components/Login";
 import NavigationBar from "./components/NavigationBar";
-/*
-import Home from "./components/Home";
-import NotFound from "./components/NotFound";
-import NewQuestion from "./components/NewQuestion";
-import LeaderBoard from "./components/LeaderBoard";
-import ScoreCard from "./components/ScoreCard";
-import Question from "./components/Question";
-import PollResults from "./components/PollResults";
-*/
+import UserHome from "./components/UserHome";
+
+
 import history from "./History";;
 
 class Routers extends Component {
@@ -22,6 +16,8 @@ class Routers extends Component {
                     <NavigationBar />
                     <Switch>
                         <Route exact path="/" component={Login} />
+                        <Route exact path="/signin" component={Login} />
+                        <Route exact path="/userHome" component={UserHome} />
                     </Switch>
                 </div>
 

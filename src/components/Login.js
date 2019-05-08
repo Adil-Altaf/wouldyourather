@@ -40,7 +40,7 @@ class Login extends Component {
         const {userIds, users} = this.props;
 
         if(this.state.goToHome){
-            return <Redirect to="/home" />
+            return <Redirect to="/userHome" />
         }
 
         return (

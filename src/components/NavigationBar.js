@@ -47,7 +47,7 @@ class NavigationBar extends Component {
                 <AppBar position="static" >
                     <Toolbar>
                         <div className={classes.expand}>
-                            <Button color="inherit"  className="navigationLinkButton" component={Link} to="/home">Home</Button>
+                            <Button color="inherit"  className="navigationLinkButton" component={Link} to="/userHome">Home</Button>
                             <Button color="inherit" className="navigationLinkButton" component={Link} to="/newquestion">Add Question</Button>
                             <Button color="inherit" className="navigationLinkButton" component={Link} to="/leaderboard">Leader Board</Button>
                         </div>
