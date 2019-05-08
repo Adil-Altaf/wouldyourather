@@ -19,7 +19,7 @@ class PollElement extends Component {
                 <div className="pollElementBoxHeader">
                     {question.authorName} asks:
                 </div>
-                <div className="pollElementControls">
+                <div className="pollElementControls" style={{backgroundColor:"lightgray"}}>
                     <Grid container spacing={16}>
 
                         <Grid item xs={4} alignItems="center" justify="center" container>

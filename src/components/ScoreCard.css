@@ -1,0 +1,58 @@
+.scoreCardContainer {
+    margin: 'auto';
+    max-width: 600;
+    text-align: left;
+}
+
+.scoreCardImage {
+    margin: 'auto';
+    display: 'block';
+    max-width: '100%';
+    max-height: '100%';
+    width: 100px;
+    height: 100px;
+}
+
+
+.scoreCardSeparator {
+    text-align: center;
+    background-color: lightgray;
+    height: 100%;
+    width: 1px;
+}
+
+.scoreCardSeparatorGrid {
+    max-width: 1px !important;
+}
+
+.scoreCardScoreElement {
+    margin-left: -10px;
+    width: calc(100% - 10px);
+    height: calc(100% - 20px);
+}
+
+.scoreCardScoreGrid {
+    height: 100%;
+}
+
+.scoreCardScoreHeader {
+    height: 30px;
+    font-weight: bold;
+
+    text-align: center;
+    border-bottom-style: solid;
+    border-color: lightgray;
+    border-width: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.scoreCardBadge {
+    margin-top: 25px;
+}
+
+
+.scoreCardName {
+    font-weight: bold;
+}

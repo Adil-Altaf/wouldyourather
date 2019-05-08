@@ -80,7 +80,7 @@ class Login extends Component {
                                 </FormControl>
                             </form>
                         </div>
-                        <Button variant="contained" color="inherit" className="formControl" onClick={this.submit}>Sign In</Button>
+                        <Button variant="contained" style={{backgroundColor: "black", color:"white"}} className="formControl" onClick={this.submit}>Sign In</Button>
                     </Paper>
                 </div>
             </div>

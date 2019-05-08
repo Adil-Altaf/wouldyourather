@@ -24,7 +24,8 @@
     border-width: 1px;
     display: flex;
     flex-direction: column;
-    background-color: lightgray;
+    background-color: black;
+    color: white;
     text-align: left;
     justify-content: center;
     padding-left: 10px;
@@ -81,7 +82,8 @@
 }
 
 .questionResultsUserVote {
-    background-color: #f50057;
+    background-color: black;
+    color: white;
     width: 35px;
     border-radius: 50%;
     text-align: center;

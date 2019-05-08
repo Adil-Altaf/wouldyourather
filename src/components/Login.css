@@ -12,7 +12,8 @@
 
 .signinBoxHeader {
     height: 50px;
-    background-color: lightgray;
+    background-color: black;
+    color: white;
 }
 
 .signinBoxTitle {

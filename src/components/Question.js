@@ -27,8 +27,6 @@ class Question extends Component {
     submit = e => {
         e.preventDefault();
         const { value } = this.state;
-        console.log("test > ",value);
-        console.log("test 2 >",this.props.qid);
         this.props.dispatch(handleAddAnswer(this.props.qid, value));
         this.setState({
             value:'',
@@ -114,9 +112,6 @@ class Question extends Component {
 
 function mapStateToProps({userAuth, questions, users}, props) {
     const { id } = props.match.params;
-    console.log("id in map state to pro ",id);
-    console.log("id in map state to pro ",props.match);
-    console.log("id in map state to pro ",props.match.params);
 
     return {
         userAuth,

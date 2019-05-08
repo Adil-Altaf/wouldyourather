@@ -6,15 +6,10 @@ import UserHome from "./components/UserHome";
 import AddQuestion from "./components/AddQuestion";
 import Question from "./components/Question";
 import QuestionResults from "./components/QuestionResults";
-
-
-/*
-import NotFound from "./components/NotFound";
 import LeaderBoard from "./components/LeaderBoard";
 import ScoreCard from "./components/ScoreCard";
-import PollResults from "./components/PollResults";
-*/
-import history from "./History";;
+import NotFound404 from "./components/NotFound404";
+import history from "./History";
 
 class Routers extends Component {
 
@@ -30,8 +25,9 @@ class Routers extends Component {
                         <Route exact path="/addQuestion" component={AddQuestion} />
                         <Route exact path="/question/:id" component={Question} />
                         <Route exact path="/questionResult/:id" component={QuestionResults} />
-
-
+                        <Route exact path="/leaderboard" component={LeaderBoard} />
+                        <Route exact path="/scorecard" component={ScoreCard} />
+                        <Route path="*" component={NotFound404} />
                     </Switch>
                 </div>
 

@@ -83,7 +83,7 @@ class AddQuestion extends Component {
                                     />
                             </form>
                         </div>
-                        <Button variant="contained" color="inherit" className="addQuestionFormControl" onClick={this.submit}>Submit</Button>
+                        <Button variant="contained" className="addQuestionFormControl" style={{backgroundColor:"black",color:"white"}} onClick={this.submit}>Submit</Button>
                     </Paper>
                 </div>
             </div>

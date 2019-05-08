@@ -45,17 +45,17 @@ class NavigationBar extends Component {
         return (
             <header>
                 <AppBar position="static" >
-                    <Toolbar>
+                    <Toolbar style={{backgroundColor:"black"}}>
                         <div className={classes.expand}>
                             <Button color="inherit"  className="navigationLinkButton" component={Link} to="/userHome">Home</Button>
                             <Button color="inherit" className="navigationLinkButton" component={Link} to="/addquestion">Add Question</Button>
-                            <Button color="inherit" className="navigationLinkButton" component={Link} to="/leaderboard">Leader Board</Button>
+                            <Button color="inherit" className="navigationLinkButton" component={Link} to="/leaderboard">Leaderboard</Button>
                         </div>
                         {
                             signedInUser? (
                                 <Fragment>
                                     <Typography variant="h6" color="inherit" className={classes.signedInUser}>
-                                        Hello {signedInUser.name}
+                                        {signedInUser.name}
                                     </Typography>
                                     <Avatar alt="Remy Sharp" src={signedInUser?signedInUser.avatarURL:""} className={classes.avatar} />
                                     <Button color="inherit" className="navigationLinkButton" onClick={this.logout}>Logout</Button>

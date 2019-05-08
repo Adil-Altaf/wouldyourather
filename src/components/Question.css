@@ -23,7 +23,8 @@
     border-width: 1px;
     display: flex;
     flex-direction: column;
-    background-color: lightgray;
+    background-color: black;
+    color: white;
     text-align: left;
     justify-content: center;
     padding-left: 10px;
