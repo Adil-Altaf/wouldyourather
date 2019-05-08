@@ -1,4 +1,4 @@
-.pollResultsContainer {
+.questionResultsContainer {
     min-width: 320px;
     max-width: 500px;
     height: auto;
@@ -7,15 +7,15 @@
     left: 0;
     right: 0;
     margin: auto;
-    
+
 }
 
 
-.pollResultsPaper {
+.questionResultsElement {
     overflow: auto
 }
 
-.pollResultsBoxHeader {
+.questionResultsHeader {
     height: 50px;
     font-weight: bold;
     text-align: center;
@@ -31,7 +31,7 @@
 }
 
 
-.pollResultsControls {
+.questionResultsControls {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
@@ -39,54 +39,67 @@
 }
 
 
-.pollResultsFormControl {
+.questionResultsFormControl {
     width: 100%;
     margin-top: 30px !important;
 }
 
-.pollResultsText {
+.questionResultsText {
     font-weight: bold;
     margin-top: 20px;
 }
 
-.pollResultsSeparator {
+.questionResultsSeparator {
     text-align: center;
     background-color: lightgray;
     height: 100%;
     width: 1px;
 }
 
-.pollResultsMainTitle {
-    
+.questionResultsTitle {
+
     font-weight: bold;
     font-size: 1em;
     height: 30px;
 }
 
-.pollResultsAnswerGrid {
+.questionResultsAnswerGrid {
     margin-top:30px !important;
 }
 
-.pollResultsVoteCount {
+.questionResultsTotalVotes {
     text-align: center;
     font-weight: bold;
 }
 
-.pollResultsAnswerPaper {
+.questionResultsAnswerElement {
     padding: 10px;
 }
 
-.pollResultsAnswerProgress {
+.questionResultsAnswerProgress {
     height: 15px !important;
 }
 
-.pollResultsUserVoteDiv {
+.questionResultsUserVote {
     background-color: #f50057;
-    width: 50px;
+    width: 35px;
     border-radius: 50%;
     text-align: center;
     margin-top: -31px;
     margin-left: 260px;
     position: absolute;
-    height: 50px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.questionResultsScoreCardImage {
+    margin: 'auto';
+    display: 'block';
+    max-width: '100%';
+    max-height: '100%';
+    width: 100px;
+    height: 100px;
 }

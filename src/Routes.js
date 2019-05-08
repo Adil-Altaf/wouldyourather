@@ -5,6 +5,8 @@ import NavigationBar from "./components/NavigationBar";
 import UserHome from "./components/UserHome";
 import AddQuestion from "./components/AddQuestion";
 import Question from "./components/Question";
+import QuestionResults from "./components/QuestionResults";
+
 
 /*
 import NotFound from "./components/NotFound";
@@ -27,6 +29,8 @@ class Routers extends Component {
                         <Route exact path="/userHome" component={UserHome} />
                         <Route exact path="/addQuestion" component={AddQuestion} />
                         <Route exact path="/question/:id" component={Question} />
+                        <Route exact path="/questionResult/:id" component={QuestionResults} />
+
 
                     </Switch>
                 </div>

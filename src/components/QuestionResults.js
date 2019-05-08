@@ -6,19 +6,30 @@ import { Redirect } from "react-router-dom";
 import { formatQuestion } from "../utilities/helper";
 import { connect } from "react-redux";
 
-import './PollResults.css';
+import './QuestionResults.css';
 
-class PollResults extends Component {
+class QuestionResults extends Component {
 
-    calculateOptionResult(votes, question){
+    optionResult(votes, question){
         return (votes / (question.optionOne.votes.length + question.optionTwo.votes.length))*100;
+    }
+
+    showVoteComponent(question,userAuth){
+      return (
+        question.optionOne.votes.includes(userAuth)?
+        (
+            <div className="questionResultsUserVote">
+                You
+            </div>
+        ):null
+      );
     }
     render() {
 
-    const { question, authedUser} = this.props;
+    const { question, userAuth} = this.props;
 
-    if(!authedUser){
-        return <Redirect to="/login" />
+    if(!userAuth){
+        return <Redirect to="/signin" />
     }
 
     if(!question) {
@@ -26,36 +37,36 @@ class PollResults extends Component {
     }
 
     return (
-        <div className="pollResultsContainer">
-            <Paper className="pollResultsPaper">
-                <div className="pollResultsBoxHeader">
+        <div className="questionResultsContainer">
+            <Paper className="questionResultsElement">
+                <div className="questionResultsHeader">
                     {question.authorName} asks:
                 </div>
-                <div className="pollResultsControls">
+                <div className="questionResultsControls">
                     <Grid container spacing={16}>
 
                         <Grid item xs={3} alignItems="center" justify="center" container>
                             <div>
-                                <img className="scoreCardImg" alt="complex" src={question.avatar} />
+                                <img className="questionResultsScoreCardImage" alt="complex" src={question.avatarURL} />
                             </div>
                         </Grid>
                         <Grid item xs={1}>
-                            <div className="pollResultsSeparator">
+                            <div className="questionResultsSeparator">
                             </div>
                         </Grid>
                         <Grid item xs={8} container direction="column">
                             <Grid item >
-                                <div className="pollResultsMainTitle">
+                                <div className="questionResultsTitle">
                                     Results:
                                 </div>
                             </Grid>
-                            <Grid item className="pollResultsAnswerGrid">
-                                <Paper className="pollResultsAnswerPaper">
+                            <Grid item className="questionResultsAnswerGrid">
+                                <Paper className="questionResultsAnswerElement">
                                     {
-                                        question.optionOne.votes.includes(authedUser)?
+                                        question.optionOne.votes.includes(userAuth)?
                                         (
-                                            <div className="pollResultsUserVoteDiv">
-                                                Your Vote
+                                            <div className="questionResultsUserVote">
+                                                You
                                             </div>
                                         ):null
                                     }
@@ -64,21 +75,21 @@ class PollResults extends Component {
                                             Would you rather {question.optionOne.text}
                                         </Grid>
                                         <Grid item >
-                                            <LinearProgress variant="determinate" value={(this.calculateOptionResult(question.optionOne.votes.length,question))} className="pollResultsAnswerProgress" />
+                                            <LinearProgress variant="determinate" value={(this.optionResult(question.optionOne.votes.length,question))} className="questionResultsAnswerProgress" />
                                         </Grid>
-                                        <Grid item className="pollResultsVoteCount" >
+                                        <Grid item className="questionResultsTotalVotes" >
                                             {question.optionOne.votes.length} out of { question.optionOne.votes.length + question.optionTwo.votes.length} votes
                                         </Grid>
                                     </Grid>
                                 </Paper>
                             </Grid>
-                            <Grid item className="pollResultsAnswerGrid">
-                                <Paper className="pollResultsAnswerPaper">
+                            <Grid item className="questionResultsAnswerGrid">
+                                <Paper className="questionResultsAnswerElement">
                                     {
-                                        question.optionTwo.votes.includes(authedUser)?
+                                        question.optionTwo.votes.includes(userAuth)?
                                         (
-                                            <div className="pollResultsUserVoteDiv">
-                                                Your Vote
+                                            <div className="questionResultsUserVote">
+                                                You
                                             </div>
                                         ):null
                                     }
@@ -87,10 +98,10 @@ class PollResults extends Component {
                                             Would you rather {question.optionTwo.text}
                                         </Grid>
                                         <Grid item >
-                                            <LinearProgress variant="determinate" value={(this.calculateOptionResult(question.optionTwo.votes.length,question))} className="pollResultsAnswerProgress"/>
+                                            <LinearProgress variant="determinate" value={(this.optionResult(question.optionTwo.votes.length,question))} className="questionResultsAnswerProgress"/>
 
                                         </Grid>
-                                        <Grid item className="pollResultsVoteCount">
+                                        <Grid item className="questionResultsTotalVotes">
                                         {question.optionTwo.votes.length} out of { question.optionOne.votes.length + question.optionTwo.votes.length} votes
                                         </Grid>
                                     </Grid>
@@ -106,12 +117,12 @@ class PollResults extends Component {
   }
 }
 
-function mapStateToProps({authedUser, questions, users}, props) {
+function mapStateToProps({userAuth, questions, users}, props) {
     const { id } = props.match.params;
     return {
-        authedUser,
-        question: questions[id]? formatQuestion(questions[id],users[questions[id].author],authedUser): null
+        userAuth,
+        question: questions[id]? formatQuestion(questions[id],users[questions[id].author],userAuth): null
     }
 }
 
-export default connect(mapStateToProps)(PollResults);
+export default connect(mapStateToProps)(QuestionResults);
