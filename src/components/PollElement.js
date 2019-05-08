@@ -61,7 +61,7 @@ function mapStateToProps({userAuth, questions, users}, { id }) {
     return {
         userAuth,
         question: formatQuestion(question,users[question.author],userAuth),
-        navigationURL: users[userAuth].answers[id]? `pollresult/${question.id}` : `/question/${question.id}`
+        navigationURL: users[userAuth].answers[id]? `questionResult/${question.id}` : `/question/${question.id}`
     }
 }
 

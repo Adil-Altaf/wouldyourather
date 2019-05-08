@@ -26,7 +26,7 @@ export function handleAddAnswer(questionId, answer){
         dispatch(showLoading());
         const info = {
             userAuth,
-            questionId,
+            qid:questionId,
             answer
         }
         return addQuestionAnswer(info)

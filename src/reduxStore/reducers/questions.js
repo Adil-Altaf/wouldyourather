@@ -18,11 +18,11 @@ export default function questions (state = {}, action) {
             const { answer } = action;
             return {
                 ...state,
-                [answer.questionId] : {
-                    ...state[answer.questionId],
+                [answer.qid] : {
+                    ...state[answer.qid],
                     [answer.answer] : {
-                        ...state[answer.questionId][answer.answer],
-                        votes : state[answer.questionId][answer.answer].votes.concat([answer.userAuth])
+                        ...state[answer.qid][answer.answer],
+                        votes : state[answer.qid][answer.answer].votes.concat([answer.userAuth])
                     }
                 }
             }

@@ -1,0 +1,128 @@
+import React, { Component } from 'react';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import Radio from '@material-ui/core/Radio';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Grid from '@material-ui/core/Grid';
+import { formatQuestion } from "../utilities/helper";
+import { connect } from "react-redux";
+import { handleAddAnswer } from "../reduxStore/actions/questions";
+import { Redirect } from "react-router-dom";
+
+
+import './Question.css';
+
+class Question extends Component {
+
+    state = {
+        value: '',
+        navigateToResult: false,
+    };
+
+    handleChange = event => {
+        this.setState({ value: event.target.value });
+    };
+
+    submit = e => {
+        e.preventDefault();
+        const { value } = this.state;
+        console.log("test > ",value);
+        console.log("test 2 >",this.props.qid);
+        this.props.dispatch(handleAddAnswer(this.props.qid, value));
+        this.setState({
+            value:'',
+            navigateToResult: true,
+        })
+    }
+
+    render() {
+        const { question, userAuth} = this.props;
+
+        if(!userAuth){
+            return <Redirect to="/signin" />
+        }
+
+        if(!question) {
+            return null;
+        }
+
+        if(this.state.navigateToResult){
+            return <Redirect to={`/questionResult/${question.id}`} />
+        }
+
+
+
+
+        return (
+            <div className="questionContainer">
+                <Paper className="questionElement">
+                    <div className="questionHeader">
+                        {question.authorName} asks:
+                    </div>
+                    <div className="questionControls">
+                        <Grid container spacing={16}>
+
+                            <Grid item xs={4} alignItems="center" justify="center" container>
+                                <div>
+                                    <img className="questionScoreCardImage" alt="complex" src={question.avatarURL} />
+                                </div>
+                            </Grid>
+                            <Grid item xs={1}>
+                                <div className="questionSeparator">
+                                </div>
+                            </Grid>
+                            <Grid item xs={7} container direction="column">
+                                <Grid item>
+                                    <div className="questionTitle">
+                                        Would you Rather....
+                                    </div>
+                                </Grid>
+                                <Grid item >
+                                    <div>
+                                    <RadioGroup
+                                        aria-label="Option"
+                                        name="options"
+                                        value={this.state.value}
+                                        onChange={this.handleChange}
+                                    >
+                                        <FormControlLabel value="optionOne" control={<Radio />} label={question.optionOne.text} />
+                                        <FormControlLabel value="optionTwo" control={<Radio />} label={question.optionTwo.text} />
+                                    </RadioGroup>
+                                    </div>
+                                </Grid>
+                                <Grid item >
+                                    <Button variant="contained"
+                                            color="inherit" className="questionFormElement"
+                                            onClick={this.submit}
+                                            disabled={this.state.value===''}
+                                            >
+                                        Submit
+                                    </Button>
+                                </Grid>
+
+
+                            </Grid>
+                        </Grid>
+                    </div>
+
+                </Paper>
+            </div>
+        );
+    }
+}
+
+function mapStateToProps({userAuth, questions, users}, props) {
+    const { id } = props.match.params;
+    console.log("id in map state to pro ",id);
+    console.log("id in map state to pro ",props.match);
+    console.log("id in map state to pro ",props.match.params);
+
+    return {
+        userAuth,
+        qid: id,
+        question: questions[id]? formatQuestion(questions[id],users[questions[id].author],userAuth): null
+    }
+}
+
+export default connect(mapStateToProps)(Question);
