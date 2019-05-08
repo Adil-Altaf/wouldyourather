@@ -1,0 +1,42 @@
+.signinContainer {
+    min-width: 360px;
+    max-width: 450px;
+    height: auto;
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+
+.signinBoxHeader {
+    height: 50px;
+    background-color: lightgray;
+}
+
+.signinBoxTitle {
+    font-weight: bold;
+    text-align: center;
+}
+
+.signinBoxMsg {
+    text-align: center;
+}
+
+.signinElements {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.formControl {
+    width: calc(100% - 10px);
+    margin: 10px 0px !important;
+}
+
+.signinBoxImage {
+    width: 30px;
+    height: 30px;
+}
